@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+      .call-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: green;
+      border-radius: 6%;
+      margin-right: 10px;
+      cursor: pointer;
+     position: absolute;
+     top: 10px;
+     right: 180px;
+    }
+
+    .call-icon i {
+      color: #fff;
+      animation: callIconAnimation 1.5s infinite ease-in-out;
+    }
+.call-icon1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #735FF2;
+      border-radius: 6%;
+      margin-right: 10px;
+      cursor: pointer;
+     position: absolute;
+     top: 10px;
+     right: 120px;
+    }
+
+    .call-icon1 i {
+      color: #fff;
+    }
+.call-icon2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #2B9FD8;
+      border-radius: 6%;
+      margin-right: 10px;
+      cursor: pointer;
+     position: absolute;
+     top: 10px;
+     right: 60px;
+    }
+
+    .call-icon2 i {
+      color: #fff;
+    }
+    
+    @keyframes callIconAnimation {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+    
+    .chat-container {
+  height: 90vh;
+  margin: 0;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: white;
+      border-bottom: 2px solid #ccc;
+    }
+    
+    .profile-picture {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+    .name {
+      font-weight: bold;
+    }
+    
+    .active-now {
+      color: green;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+    
+   .chat-messages {
+   height: 100%;
+  padding: 10px;
+  max-height: calc(100% - 136px);
+  overflow-y: auto;
+}
+
+
+    
+    .message-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    
+    .message {
+      background-color: #F1F1F1;
+      padding: 7px 12px;
+      border-radius: 10px;
+
+     border:1px solid green;
+      max-width: auto;
+    }
+    
+    .user-message {
+      background-color: #4c8bf5;
+      align-self: flex-end;
+      color: #fff;
+    }
+    
+    .bot-message {
+      background-color: #f1f0f0;
+      align-self: flex-start;
+      color: #333;
+    }
+    
+    .bot-typing {
+      display: inline-block;
+      margin-bottom: 5px;
+      position: relative;
+      animation: botTyping 1s infinite;
+    }
+    
+    @keyframes botTyping {
+      0% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 0.1;
+      }
+    }
+    
+    .auto-respond-options {
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .auto-respond-options button {
+      padding: 8px 8px;
+      border-radius: 8px;
+      background-color: #4c8bf5;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    
+    .user-input {
+      display: flex;
+      padding: 10px;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+    }
+    
+    .user-input input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+    }
+    
+    .user-input button {
+      padding: 8px 12px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: #4c8bf5;
+      color: #fff;
+      cursor: pointer;
+    }
+.close-button {
+  border: none;
+  background: none;
+  font-size: 14px;
+ width: 40px;
+      height: 40px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+border:2px solid DodgerBlue;
+  right: 10px;
+  color: #777;
+}
+
+.close-button:hover {
+  background-color: DodgerBlue;
+}
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #eaeaea;
+  color: #333;
+margin-top: 10px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.viber-button {
+  background-color: #665cac;
+  color: #fff;
+}
+
+.telegram-button {
+  background-color: #0088cc;
+  color: #fff;
+}
+
+.website-button {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.green {
+  color: blue;
+}
+.auto-respond-options {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.red {
+  color: red;
+}
+
+
+
+
+  </style>
+
+</head>
+<body>
+  <audio id="typing-sound" src="Facebook%20Msnger%202014.mp3" preload="auto"></audio>
+  <audio id="message-sound" src="COMCell_Message%20sent%20(ID%201313)_BSB.wav" preload="auto"></audio>
+
+  <div class="chat-container">
+    <div class="chat-header">
+     
+
+      <img src="rb.png" class="profile-picture">
+      <div>
+        <button class="close-button" onclick="closeChat()">X</button>
+        <div class="name">
+ <! နာမည်ချိန်းရန်နေရာ--!>
+  &nbsp;Robot</span>
+</div>
+
+        <div class="active-now">Active now</div>
+      </div>
+    </div>
+
+    
+   <div class="chat-messages" id="chat-messages">
+  <div class="message-container"> Mr.Robot joined the chat
+</div>
+  </div>
+</div>
+
+
+  <div class="auto-respond-options" id="auto-respond-options" style="display: none;">
+  <button onclick="displayUserMessage('Live22')">Live22</button>
+  <button onclick="displayUserMessage('Club388')">Club388</button>
+  <button onclick="displayUserMessage('M9 Shan Koe Mee')">M9 Shan Koe Mee</button>
+  <button onclick="displayUserMessage('SKM Taung Paw Tar')">SKM Taung Paw Tar</button>
+</div>
+
+    
+    <div class="user-input">
+<input type="text" id="user-message-input" placeholder="Type a message..." onkeydown="handleKeyPress(event)">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function playTypingSound() {
+      var typingSound = document.getElementById("typing-sound");
+      typingSound.play();
+    }
+    
+    function playMessageSound() {
+      var messageSound = document.getElementById("message-sound");
+      messageSound.play();
+    }
+
+   
+ function displayUserMessage(message) {
+      var chatMessages = document.getElementById("chat-messages");
+      
+      var userMessageContainer = document.createElement("div");
+      userMessageContainer.classList.add("message-container");
+      
+      var userMessageElement = document.createElement("div");
+      userMessageElement.classList.add("message", "user-message");
+      userMessageElement.innerHTML = message;
+      
+      userMessageContainer.appendChild(userMessageElement);
+      chatMessages.appendChild(userMessageContainer);
+      
+      // Scroll to the bottom of the chat
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      
+      playTypingSound();
+      
+      if (message === 'Live22') {
+        displayBotMessageWithTypingAnimation("Live22 အား အောက်ပါ Viberနှင့်Telegram <br>တို့မှတဆင့် အကောင့်ဖွင့်ကစားနိုင်ပါတယ်။", true);
+      } else if (message === 'Club388') {
+        displayBotMessageWithTypingAnimation("Club388 အား အောက်ပါ Viberနှင့်Telegram <br>တို့မှတဆင့် အကောင့်ဖွင့်ကစားနိုင်ပါတယ်။", true);
+      } else if (message === 'M9 Shan Koe Mee') {
+        displayBotMessageWithTypingAnimation("M9 အား အောက်ပါ Viberနှင့်Telegram <br>တို့မှတဆင့် အကောင့်ဖွင့်ကစားနိုင်ပါတယ်။", true);
+      } else if (message === 'SKM Taung Paw Tar') {
+        displayBotMessageWithTypingAnimation("SKM TPT အား အောက်ပါ Viberနှင့်Telegram <br>တို့မှတဆင့် အကောင့်ဖွင့်ကစားနိုင်ပါတယ်။", true);
+      }
+
+    }
+    
+function displayUserMessage(message) {
+  var chatMessages = document.getElementById("chat-messages");
+
+  var userMessageContainer = document.createElement("div");
+  userMessageContainer.classList.add("message-container");
+
+  var userMessageElement = document.createElement("div");
+  userMessageElement.classList.add("message", "user-message");
+  userMessageElement.innerHTML = message;
+
+  userMessageContainer.appendChild(userMessageElement);
+  chatMessages.appendChild(userMessageContainer);
+
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  playTypingSound();
+
+  if (message === 'Live22') {
+    displayBotMessageWithTypingAnimation("Live22 အား အောက်ပါ Viber နှင့် Telegram<br>တို့မှတဆင့် အကောင့်ဖွင့်ကစားနိုင်ပါတယ်။", true, 'http://example1.com', 'http://example2.com');
+  } else if (message === 'Club388') {
+    displayBotMessageWithTypingAnimation("Club388 အား အောက်ပါ Viber နှင့် Telegram <br>တို့မှတဆင့် အကောင့်ဖွင့်ကစားနိုင်ပါတယ်။", true, 'http://example3.com', 'http://example4.com');
+  } else if (message === 'M9 Shan Koe Mee') {
+    displayBotMessageWithTypingAnimation("M9 SKM အား အောက်ပါ Viber နှင့် Telegram <br>တို့မှတဆင့် အကောင့်ဖွင့်ကစားနိုင်ပါတယ်။", true, 'http://example5.com', 'http://example6.com');
+  } else if (message === 'SKM Taung Paw Tar') {
+    displayBotMessageWithTypingAnimation("SKM TPT အား အောက်ပါ Viber နှင့် Telegram <br>တို့မှတဆင့် အကောင့်ဖွင့်ကစားနိုင်ပါတယ်။", true, 'http://example7.com', 'http://example8.com');
+  }
+}
+
+function displayBotMessageWithTypingAnimation(message, showButtons, viberLink, telegramLink) {
+  var chatMessages = document.getElementById("chat-messages");
+
+  var botMessageContainer = document.createElement("div");
+  botMessageContainer.classList.add("message-container");
+
+  var botMessageElement = document.createElement("div");
+  botMessageElement.classList.add("message", "bot-message");
+
+  var botTypingElement = document.createElement("span");
+  botTypingElement.classList.add("bot-typing");
+  botTypingElement.textContent = "Typing...";
+
+  botMessageElement.appendChild(botTypingElement);
+  botMessageContainer.appendChild(botMessageElement);
+  chatMessages.appendChild(botMessageContainer);
+
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  setTimeout(function() {
+    botMessageElement.innerHTML = message;
+    if (showButtons) {
+      var buttonsContainer = document.createElement("div");
+
+      var viberButton = document.createElement("a");
+      viberButton.textContent = "Viber";
+      viberButton.href = viberLink;
+      viberButton.target = "_blank";
+      viberButton.classList.add("button");
+      viberButton.classList.add("viber-button");
+      buttonsContainer.appendChild(viberButton);
+
+      var telegramButton = document.createElement("a");
+      telegramButton.textContent = "Telegram";
+      telegramButton.href = telegramLink;
+      telegramButton.target = "_blank";
+      telegramButton.classList.add("button");
+      telegramButton.classList.add("telegram-button");
+      buttonsContainer.appendChild(telegramButton);
+
+      botMessageElement.appendChild(buttonsContainer);
+    }
+    playMessageSound();
+  }, 1000);
+}
+
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    displayBotMessageWithTypingAnimation("မင်္ဂလာပါ");
+  }, 500);
+
+  setTimeout(function() {
+    displayBotMessageWithTypingAnimation("အွန်လိုင်းစလော့ဂိမ်းမှကြိုဆိုပါတယ်...");
+  }, 2000);
+
+  setTimeout(function() {
+    displayBotMessageWithTypingAnimation("ဆော့မယ့်ဂိမ်းကိုရွေးပေးပါ");
+    setTimeout(function() {
+      var chatMessages = document.getElementById("chat-messages");
+      var autoRespondOptions = document.getElementById("auto-respond-options");
+      autoRespondOptions.style.display = "flex"; // Show the auto-respond options
+      var messageContainer = document.createElement("div");
+      messageContainer.classList.add("message-container");
+      messageContainer.appendChild(autoRespondOptions);
+      chatMessages.appendChild(messageContainer);
+    }, 1000);
+  }, 3100);
+});
+
+    
+    function displayBotMessage(message) {
+      var chatMessages = document.getElementById("chat-messages");
+      
+      var botMessageContainer = document.createElement("div");
+      botMessageContainer.classList.add("message-container");
+      
+      var botMessageElement = document.createElement("div");
+      botMessageElement.classList.add("message", "bot-message");
+      botMessageElement.innerHTML = message;
+      
+      botMessageContainer.appendChild(botMessageElement);
+      chatMessages.appendChild(botMessageContainer);
+      
+      // Scroll to the bottom of the chat
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+function closeChat() {
+  window.location.href = 'http://myandev.github.io/';
+}
+function handleKeyPress(event) {
+  if (event.keyCode === 13) { // Enter key
+    event.preventDefault(); // Prevent line break in the input field
+    sendMessage();
+  }
+}
+
+  function makeCall() {
+      var phoneNumber = "09751313133";
+      window.location.href = "tel:" + phoneNumber;
+    }
+ function viber() {
+  window.location.href = 'http://myandev.github.io/';
+    }
+ function telegram() {
+  window.location.href = 'http://myandev.github.io/';
+    }
+
+var wordResponses = [
+  { input: 'hi', response: 'How can I help?' },
+  { input: 'hello', response: 'Hello there.' },
+{ input: 'hell', response: 'Hello there.' },
+{ input: 'bye', response: 'Bye!!' },
+
+{ input: 'fuck', response: "I don't understand! BTW fuck you too."},
+{ input: 'phone number', response: '09751313133' },
+{ input: 'ok', response: 'OK' },
+{ input: 'lee', response: 'Lee larr!' },
+{ input: 'aww', response: 'Omm' },
+{ input: 'thank', response: 'You are welcome' },
+
+
+];
+
+function addButtonsToBotMessage(messageElement) {
+  var autoRespondOptions = document.createElement("div");
+  autoRespondOptions.classList.add("auto-respond-options");
+
+  var pricingButton = document.createElement("button");
+  pricingButton.textContent = "Live22";
+  pricingButton.onclick = function() {
+    displayUserMessage('Live22');
+  };
+
+  var locationButton = document.createElement("button");
+  locationButton.textContent = "Office Location";
+  locationButton.onclick = function() {
+    displayUserMessage('Office Location');
+  };
+
+  var openingHourButton = document.createElement("button");
+  openingHourButton.textContent = "Opening Hour";
+  openingHourButton.onclick = function() {
+    displayUserMessage('Opening Hour');
+  };
+
+  var servicesButton = document.createElement("button");
+  servicesButton.textContent = "Services";
+  servicesButton.onclick = function() {
+    displayUserMessage('Services');
+  };
+
+  autoRespondOptions.appendChild(pricingButton);
+  autoRespondOptions.appendChild(locationButton);
+  autoRespondOptions.appendChild(openingHourButton);
+  autoRespondOptions.appendChild(servicesButton);
+
+  messageElement.appendChild(autoRespondOptions);
+}
+function sendMessage() {
+  var userInput = document.getElementById("user-message-input");
+  var userMessage = userInput.value.trim(); // Trim any leading or trailing whitespace
+
+  if (userMessage.length === 0) {
+    // Exit the function if the user message is blank
+    return;
+  }
+
+  displayUserMessage(userMessage);
+  userInput.value = ""; // Clear the input field
+  displayBotMessageWithTypingAnimation("ဤနေရာတွင်စာမပြန်ပါ၊ viberနှင့်telegram <br>တို့မှတဆင့်အကောင့်ဖွင့်ခြင်း၊ငွေအသွင်း၊အထုတ်လုပ်ခြင်းများ<br> လုပ်ဆောင်လို့ရပါတယ် ");
+}
+
+function handleKeyPress(event) {
+  if (event.keyCode === 13) { // Enter key
+    event.preventDefault(); // Prevent line break in the input field
+    
+    var userInput = document.getElementById("user-message-input");
+    var userMessage = userInput.value.trim(); // Trim any leading or trailing whitespace
+    
+    if (userMessage.length === 0) {
+      // Exit the function if the user message is blank
+      return;
+    }
+    
+    sendMessage();
+  }
+}
+
+
+
+
+
+  </script>
+</body>
+</html>
