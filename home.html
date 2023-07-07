@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google</title>
+  <title>webview test</title>
   <style>
     /* CSS styles */
     body {
@@ -29,7 +29,7 @@
     #logo-text {
       font-size: 16px;
       font-weight: bold;
- margin: 10px;
+      margin: 10px;
     }
 
     #text {
@@ -107,8 +107,8 @@
 
 <body>
   <div id="search-container">
-    <img id="logo" src="robot.png" alt="Google Logo">
-    <div id="logo-text">ဂာစားရန်ဒာပေါ်ဂာပုံကိုဖိထားပါ</div>
+    <img id="logo" src="robot.png" alt="plam tree">
+    <div id="logo-text">ဂာစားရန်ဒာပေါ်ဂာပုံကို ၃ချက်နှိပ်ပါ</div>
 
     <div id="search-box">
       <input type="text" placeholder="Search Google">
@@ -136,37 +136,22 @@
       window.location.href = webAddress;
     });
 
-  var logo = document.querySelector('#logo');
-  var timer;
-  
-  logo.addEventListener('mousedown', function () {
-    timer = setTimeout(function () {
-      window.location.href = 'cha.html';
-    }, 2000);
-  });
-  
-  logo.addEventListener('mouseup', function () {
-    clearTimeout(timer);
-  });
+    var logo = document.querySelector('#logo');
+    var clickCount = 0;
+    var timer;
 
-  var logo = document.querySelector('#logo');
-  var timer;
-
-  logo.addEventListener('mousedown', function () {
-    timer = setTimeout(function () {
-      window.location.href = 'cha.html';
-    }, 3000);
-  });
-
-  logo.addEventListener('mouseup', function () {
-    clearTimeout(timer);
-  });
-
-  logo.addEventListener('mouseleave', function () {
-    clearTimeout(timer);
-  });
-
-
+    logo.addEventListener('click', function () {
+      clickCount++;
+      if (clickCount === 3) {
+        window.location.href = 'cha.html';
+        clearTimeout(timer);
+      } else {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          clickCount = 0;
+        }, 2000);
+      }
+    });
   </script>
 </body>
 
