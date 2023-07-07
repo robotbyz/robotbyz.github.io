@@ -152,6 +152,18 @@
         }, 2000);
       }
     });
+    // Disable right-click
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    // Disable inspecting
+    document.addEventListener('keydown', function (e) {
+      // Use F12 key to prevent the inspecting
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 
