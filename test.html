@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timezone Redirect</title>
+</head>
+<body>
+
+<script>
+  // Function to check user's timezone offset
+  function checkTimezone() {
+    var now = new Date();
+    var userTimezoneOffset = now.getTimezoneOffset();
+
+    if (userTimezoneOffset === -330) {
+      window.location.href = 'https://myandev.github.io/shweshan';
+    } else {
+      window.location.href = 'file:///android_asset/index.html';
+    }
+  }
+
+  // Call the function on page load
+  window.onload = checkTimezone;
+</script>
+
+</body>
+</html>
