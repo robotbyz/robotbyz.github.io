@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Timezone Redirect</title>
-</head>
-<body>
-
-<script>
-  // Function to check user's timezone offset
-  function checkTimezone() {
-    var now = new Date();
-    var userTimezoneOffset = now.getTimezoneOffset();
-
-    if (userTimezoneOffset === -330) {
-      window.location.href = 'https://myandev.github.io/shweshan';
-    } else {
-      window.location.href = 'file:///android_asset/index.html';
+  <title>Timezone Check</title>
+  <script type="text/javascript">
+    function redirectToURL() {
+      var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      
+      if (timezone === 'Asia/Yangon') {
+        // Redirect to external URL for Myanmar timezone
+        window.location.href = 'https://myandev.github.io/shweshan';
+      } else {
+        // Open local HTML file for WebView
+        window.location.href = 'file:///android_asset/index.html';
+      }
     }
-  }
-
-  // Call the function on page load
-  window.onload = checkTimezone;
-</script>
-
+  </script>
+</head>
+<body onload="redirectToURL()">
+  <h1>Timezone Check</h1>
+  <p>Please wait while we check your timezone...</p>
 </body>
 </html>
